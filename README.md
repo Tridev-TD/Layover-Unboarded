@@ -19,4 +19,4 @@ Public endpoints are useful for development and low-volume use. For a production
 
 ## Persistence
 
-The current application persists progress, preferences and active quests in browser local storage. It is functional for one device, but is not multi-user authentication or server-validated persistence. Add an authenticated database (for example Supabase/Postgres) before making multi-user deployment claims.
+The current application persists progress, preferences and active quests in browser local storage, which works across refreshes on one device. For a multi-user deployment, apply [`database/schema.sql`](database/schema.sql) in Supabase/Postgres and connect an authenticated profile API using the server-only Supabase variables in `.env.example`. The schema includes row-level security; this repository does not claim that a database is active without those credentials.
