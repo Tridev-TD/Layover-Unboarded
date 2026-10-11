@@ -8,6 +8,10 @@
 
 For a production-style run, build the frontend with `npm run build`, then run `npm start`. The server serves `dist` as well as the API.
 
+## Recommended test setup
+
+For the most reliable initial test, enter **Delhi** in both the **Departure Details** location field and the **Starting Point** field. Using the same city in both fields helps the app resolve locations and return valid nearby-place and quest results while testing. Once the flow works, try other locations.
+
 ## Data providers
 
 - **Nominatim / OpenStreetMap**: manual location and station geocoding. No key, but a descriptive User-Agent/contact and conservative caching are used.
