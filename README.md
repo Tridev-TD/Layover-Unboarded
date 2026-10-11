@@ -21,6 +21,15 @@ For the most reliable initial test, enter **Delhi** in both the **Departure Deta
 
 Public endpoints are useful for development and low-volume use. For a production deployment, configure managed/commercial OSM-compatible geocoding, POI and routing services, respecting each provider’s usage policy. The server intentionally does not fabricate results when an upstream service is unavailable.
 
-## Persistence
+## Persistence and Supabase setup status
 
-The current application persists progress, preferences and active quests in browser local storage, which works across refreshes on one device. For a multi-user deployment, apply [`database/schema.sql`](database/schema.sql) in Supabase/Postgres and connect an authenticated profile API using the server-only Supabase variables in `.env.example`. The schema includes row-level security; this repository does not claim that a database is active without those credentials.
+**Supabase is not set up or connected yet.** The app currently saves progress, preferences and active quests in browser local storage, which works across refreshes on the same device. The database schema at [`database/schema.sql`](database/schema.sql) is provided as a starting point, but it has not been applied to a Supabase project and no live Supabase database should be assumed.
+
+To enable Supabase later:
+1. Create a Supabase project.
+2. Apply `database/schema.sql` to its database.
+3. Add the required Supabase settings to `.env` using the names documented in `.env.example`.
+4. Implement and connect the authenticated profile/API flow.
+5. Test authentication, data access and row-level security before deployment.
+
+Until these steps are completed, the application uses local storage only; data is not synced between users or devices through Supabase.
